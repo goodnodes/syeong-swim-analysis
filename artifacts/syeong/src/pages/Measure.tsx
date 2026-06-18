@@ -1,8 +1,9 @@
 import { Layout } from "@/components/Layout";
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
-import { currentUser } from "@/data/mock";
-import { Waves, CheckCircle2 } from "lucide-react";
+import { ClassResultView } from "@/components/ClassResultView";
+import { classResult } from "@/data/classMock";
+import { Waves } from "lucide-react";
 
 export default function Measure() {
   const [, setLocation] = useLocation();
@@ -86,43 +87,7 @@ export default function Measure() {
         )}
 
         {step === 2 && (
-          <div className="flex-1 flex flex-col bg-gray-50 animate-in slide-in-from-bottom-8 fade-in duration-700">
-            <div className="bg-gradient-to-br from-[#1E293B] to-[#0F172A] text-white p-8 pt-16 rounded-b-[40px] shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiPjwvcmVjdD4KPHBhdGggZD0iTTAgMEw4IDhaTTAgOEw4IDBaIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjEiPjwvcGF0aD4KPC9zdmc+')] opacity-20" />
-              
-              <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" />
-                  분석 완료
-                </div>
-                
-                <h2 className="text-xl text-gray-300 font-medium mb-1">추정 실력 등급</h2>
-                <div className="text-5xl font-black mb-8 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                  {currentUser.level}
-                </div>
-
-                <div className="space-y-4">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 flex justify-between items-center">
-                    <span className="text-gray-300 font-medium">대한민국 상위</span>
-                    <span className="text-2xl font-bold text-white">{currentUser.percentile}%</span>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 flex justify-between items-center">
-                    <span className="text-gray-300 font-medium">예상 50m 자유형</span>
-                    <span className="text-2xl font-bold text-white">{currentUser.best50m.freestyle}초</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-6 mt-auto">
-              <button 
-                onClick={() => setLocation("/")}
-                className="w-full bg-white text-gray-900 border border-gray-200 py-4 rounded-2xl font-bold text-lg shadow-sm hover:bg-gray-50 transition-colors"
-              >
-                홈으로 돌아가기
-              </button>
-            </div>
-          </div>
+          <ClassResultView result={classResult} onHome={() => setLocation("/")} />
         )}
 
       </div>
