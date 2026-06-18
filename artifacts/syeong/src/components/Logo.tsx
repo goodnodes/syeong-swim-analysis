@@ -1,5 +1,5 @@
 import { shadow } from "@/theme/tokens";
-import logoUrl from "@assets/Syeong_logo_1781762686397.png";
+import logoUrl from "@/assets/logo.png";
 
 interface LogoProps {
   size?: number;
