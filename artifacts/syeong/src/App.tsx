@@ -5,10 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 
 import Home from "@/pages/Home";
-import Analysis from "@/pages/Analysis";
-import Compare from "@/pages/Compare";
 import Measure from "@/pages/Measure";
-import Profile from "@/pages/Profile";
 import Seed from "@/pages/Seed";
 import Result from "@/pages/Result";
 
@@ -18,11 +15,8 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/analysis" component={Analysis} />
-      <Route path="/compare" component={Compare} />
       <Route path="/measure" component={Measure} />
       <Route path="/result" component={Result} />
-      <Route path="/profile" component={Profile} />
       <Route path="/seed" component={Seed} />
       <Route component={NotFound} />
     </Switch>

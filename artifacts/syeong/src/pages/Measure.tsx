@@ -2,11 +2,12 @@ import { Layout } from "@/components/Layout";
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { ClassResultView } from "@/components/ClassResultView";
-import { classResult } from "@/data/classMock";
-import { Waves } from "lucide-react";
+import { useClassResult } from "@/class/useClassResult";
+import { Waves, Loader2 } from "lucide-react";
 
 export default function Measure() {
   const [, setLocation] = useLocation();
+  const classState = useClassResult();
   const [step, setStep] = useState<number>(() => {
     // 홈의 "내 실력 측정" 버튼에서 진입하면 시작 화면을 건너뛰고 바로 측정 시작
     if (typeof window !== "undefined") {
@@ -87,7 +88,23 @@ export default function Measure() {
         )}
 
         {step === 2 && (
-          <ClassResultView result={classResult} onHome={() => setLocation("/")} />
+          classState.status === "ready" ? (
+            <ClassResultView result={classState.result} onHome={() => setLocation("/")} />
+          ) : classState.status === "error" ? (
+            <div className="flex-1 flex flex-col items-center justify-center gap-5 px-8 text-center">
+              <p className="text-sm text-muted-foreground">{classState.message}</p>
+              <button
+                onClick={() => setLocation("/")}
+                className="rounded-xl bg-primary text-white px-6 py-3 font-bold"
+              >
+                홈으로
+              </button>
+            </div>
+          ) : (
+            <div className="flex-1 flex items-center justify-center">
+              <Loader2 className="w-7 h-7 animate-spin text-primary" />
+            </div>
+          )
         )}
 
       </div>
