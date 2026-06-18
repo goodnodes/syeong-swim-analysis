@@ -1,0 +1,1 @@
+- [Syeong project context](syeong-project.md) — swimming-analysis app in artifacts/syeong; design-data repo blocked by org OAuth (403), mock generators must use seeded PRNG.

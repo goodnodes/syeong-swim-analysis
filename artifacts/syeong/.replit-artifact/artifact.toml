@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Syeong · 수영 실력 분석"
+version = "1.0.0"
+id = "artifacts/syeong"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18712
+
+[services.development]
+run = "pnpm --filter @workspace/syeong run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/syeong", "run", "build" ]
+publicDir = "artifacts/syeong/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18712"
+BASE_PATH = "/"
