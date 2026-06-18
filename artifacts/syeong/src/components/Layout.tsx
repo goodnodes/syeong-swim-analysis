@@ -26,7 +26,8 @@ export function Layout({ children }: LayoutProps) {
         
         <nav className="absolute bottom-0 w-full bg-white border-t border-gray-100 flex justify-around items-center h-[72px] px-2 z-50">
           {navItems.map((item) => {
-            const isActive = location === item.href;
+            const path = location.split("?")[0];
+            const isActive = item.href === "/" ? path === "/" : path.startsWith(item.href);
             const Icon = item.icon;
             return (
               <Link key={item.href} href={item.href} className="flex-1 flex flex-col items-center justify-center gap-1">
