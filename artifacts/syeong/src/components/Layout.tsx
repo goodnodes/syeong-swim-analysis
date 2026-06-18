@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Home, BarChart2, Users, Timer, User } from "lucide-react";
+import { Home, BarChart2, Users, Timer, User, Sprout } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface LayoutProps {
@@ -15,6 +15,7 @@ export function Layout({ children }: LayoutProps) {
     { href: "/compare", icon: Users, label: "비교" },
     { href: "/measure", icon: Timer, label: "측정" },
     { href: "/profile", icon: User, label: "프로필" },
+    { href: "/seed", icon: Sprout, label: "시딩" },
   ];
 
   return (

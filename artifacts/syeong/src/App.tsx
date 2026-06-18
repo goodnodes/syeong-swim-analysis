@@ -9,6 +9,7 @@ import Analysis from "@/pages/Analysis";
 import Compare from "@/pages/Compare";
 import Measure from "@/pages/Measure";
 import Profile from "@/pages/Profile";
+import Seed from "@/pages/Seed";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/compare" component={Compare} />
       <Route path="/measure" component={Measure} />
       <Route path="/profile" component={Profile} />
+      <Route path="/seed" component={Seed} />
       <Route component={NotFound} />
     </Switch>
   );

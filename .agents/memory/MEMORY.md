@@ -1,1 +1,2 @@
 - [Syeong project context](syeong-project.md) — swimming-analysis app in artifacts/syeong; design-data repo blocked by org OAuth (403), mock generators must use seeded PRNG.
+- [Apple Health seeding contract](apple-health-seeding-contract.md) — api-dev.syeong.com POST /v2/records/apple-health quirks: samples need device+sourceRevision, OS version is a string, timestamps need +09:00 (colon), returns 200 on parse errors.
