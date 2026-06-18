@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "D6ESVb61AowWLdbXlUXAH"
+uri = "file://artifacts/syeong/docs/class-evaluation-api.md"
+type = "text"
+title = "셩 클래스 서버 응답 명세"
